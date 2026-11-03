@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Velnq — a quiet place for your music</title>
+<meta name="description" content="Velnq is a private music player for audio files you already own. Nothing is uploaded.">
+<meta name="theme-color" content="#101014">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></symbol>
+<symbol id="i-prev" viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z" fill="currentColor"/></symbol>
+<symbol id="i-next" viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z" fill="currentColor"/></symbol>
+<symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M3 7h3c6 0 6 10 12 10h3M3 17h3c2 0 3-1 4-2.5M14 8.5C15 7.5 16 7 18 7h3M18 4l3 3-3 3M18 14l3 3-3 3"/></symbol>
+<symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4 11V9a3 3 0 013-3h13M17 3l3 3-3 3M20 13v2a3 3 0 01-3 3H4M7 15l-3 3 3 3"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-5-8-10a4.5 4.5 0 018-2.7A4.5 4.5 0 0120 10c0 5-8 10-8 10z" style="fill:var(--f,none)"/></symbol>
+<symbol id="i-vol" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM16.5 8.5a5 5 0 010 7M19 6a8 8 0 010 12"/></symbol>
+<symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM17 9l5 6M22 9l-5 6"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+<symbol id="i-queue" viewBox="0 0 24 24"><path d="M4 6h13M4 12h13M4 18h7M17 15l5 3-5 3z"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M5 14v5h14v-5"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></symbol>
+<symbol id="i-lib" viewBox="0 0 24 24"><path d="M4 5v14M9 5v14M14 7l3-1.5 3 12-3 1.5z"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M4 6h12M4 11h12M4 16h7M17 14v5M14.5 19a2.5 2.5 0 105 0 2.5 2.5 0 00-5 0z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><path d="M11 18a7 7 0 100-14 7 7 0 000 14zM20 20l-4-4"/></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><path d="M12 21a9 9 0 100-18 9 9 0 000 18zM15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 01-.5-8A5.5 5.5 0 0117 9.5 4.3 4.3 0 0117 18zM12 16v-5M9.5 13.5L12 11l2.5 2.5"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4h10a3 3 0 013 3v13H8a3 3 0 01-3-3zM5 17a3 3 0 013-3h10"/></symbol>
+<symbol id="i-chevl" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+<symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+<symbol id="i-chevl" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+<symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+</defs></svg>
+<a class="skip" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="side">
+    <a class="brand" href="./"><span class="mark" aria-hidden="true"></span>Velnq</a>
+    <nav class="nav" aria-label="Main">
+      <button data-view="library"><span><svg class="ic" aria-hidden="true"><use href="#i-lib"/></svg>Library</span><b id="nLib"></b></button>
+      <button data-view="favs"><span><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg>Favourites</span><b id="nFav"></b></button>
+      <button data-view="queue"><span><svg class="ic" aria-hidden="true"><use href="#i-queue"/></svg>Queue</span><b id="nQ"></b></button>
+      <button data-view="playlists"><span><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>Playlists</span></button>
+      <button data-view="online"><span><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>Search online</span></button>
+      <button data-view="discover"><span><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg>Discover</span></button>
+      <button data-view="mine"><span><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg>Published</span></button>
+      <button data-view="guide"><span><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg>Guide</span></button>
+    </nav>
+  </aside>
+  <div class="body">
+    <header class="top">
+      <label class="search"><span class="sr">Search tracks</span><input id="q" type="search" placeholder="Search your tracks ( / )" autocomplete="off"></label>
+      <button class="btn" data-a="add">Add music</button>
+      <input id="file" type="file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.oga,.opus,.flac" multiple hidden>
+    </header>
+    <main id="main" tabindex="-1"></main>
+  </div>
+  <aside class="np" id="np" aria-label="Now playing"></aside>
+</div>
+<footer class="player" id="player" aria-label="Player">
+  <div class="pm">
+    <div class="art blank" id="pArt"></div>
+    <div class="pt"><strong id="pTitle">Nothing playing</strong><span id="pSub" aria-live="polite">Add music to begin</span></div>
+    <button class="ib" id="bFav" data-ic="heart" aria-label="Add to favourites" aria-pressed="false"></button>
+  </div>
+  <div class="pc">
+    <div class="btns">
+      <button class="ib" id="bShuf" data-ic="shuffle" aria-label="Shuffle" aria-pressed="false"></button>
+      <button class="ib" id="bPrev" data-ic="prev" aria-label="Previous track"></button>
+      <button class="ib big" id="bPlay" data-ic="play pause" aria-label="Play"></button>
+      <button class="ib" id="bNext" data-ic="next" aria-label="Next track"></button>
+      <button class="ib" id="bRep" data-ic="repeat" aria-label="Repeat: off"></button>
+    </div>
+    <div class="sk"><span id="tCur">0:00</span><input id="seek" type="range" min="0" max="1000" step="1" value="0" aria-label="Seek" disabled><span id="tDur">0:00</span></div>
+  </div>
+  <div class="pv">
+    <button class="ib" id="bQueue" data-view="queue" aria-label="Open queue"><svg class="ic" aria-hidden="true"><use href="#i-queue"/></svg></button>
+    <button class="ib" id="bMute" data-ic="vol mute" aria-label="Mute" aria-pressed="false"></button>
+    <input id="vol" type="range" min="0" max="100" value="80" aria-label="Volume">
+  </div>
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<div class="drop" id="drop" hidden>Drop audio files to add them</div>
+<noscript><p style="position:fixed;inset:0;background:#101014;color:#F0EDF3;padding:24px">Velnq needs JavaScript to play your local files.</p></noscript>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
